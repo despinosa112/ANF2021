@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct ContentItem: Decodable, Equatable {
+    let target: String?
+    let title: String?
+}

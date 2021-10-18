@@ -6,27 +6,46 @@
 //
 
 import XCTest
+@testable import ANF_Code_Test
 
 class ExploreContentCellTests: XCTestCase {
+    
+    var exploreCell: ExploreContentCell!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        let testInstance = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! ANFExploreCardTableViewController
+        exploreCell = (testInstance.tableView(testInstance.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as! ExploreContentCell)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    
+    
+    func test_subViewAreLaidOut(){
+        let mainImageView = exploreCell.mainImageView
+        let topDescriptionLabel = exploreCell.topDescriptionLabel
+        let titleLabel = exploreCell.titleLabel
+        let promoMessageLabel = exploreCell.promoMessageLabel
+        let bottomDescriptionTextView = exploreCell.bottomDescriptionTextView
+        let contentItemsTableView = exploreCell.contentItemsTableView
+        
+        let containsMainImageView = exploreCell.subviews.contains(mainImageView)
+        let containsTopDescriptionImageView = exploreCell.subviews.contains(topDescriptionLabel)
+        let containsTitleView = exploreCell.subviews.contains(titleLabel)
+        let containsPromoMessageView = exploreCell.subviews.contains(promoMessageLabel)
+        let containsBottomDescriptionTextView = exploreCell.subviews.contains(bottomDescriptionTextView)
+        let containsContentItemsTableView = exploreCell.subviews.contains(contentItemsTableView)
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        XCTAssertTrue(containsMainImageView)
+        XCTAssertTrue(containsTopDescriptionImageView)
+        XCTAssertTrue(containsTitleView)
+        XCTAssertTrue(containsPromoMessageView)
+        XCTAssertTrue(containsBottomDescriptionTextView)
+        XCTAssertTrue(containsContentItemsTableView)
+    }
+    
+    func test_setsExploreItem() {
+        XCTAssertNotNil(exploreCell.exploreItem)
     }
 
 }

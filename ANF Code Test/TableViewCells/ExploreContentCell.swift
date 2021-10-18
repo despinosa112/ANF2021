@@ -11,7 +11,7 @@ class ExploreContentCell: UITableViewCell {
     
     var exploreItem: ExploreItem?
     
-    var backgroundImage: UIImageView  = {
+    var mainImageView: UIImageView  = {
         let imageView = UIImageView()
         imageView.backgroundColor = .clear
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -65,6 +65,7 @@ class ExploreContentCell: UITableViewCell {
         return tableView
     }()
     
+    var mainImageBottomAnchor: NSLayoutConstraint? = nil
     var topDescriptionHeightAnchor: NSLayoutConstraint? = nil
     var titleLabelHeightAnchor: NSLayoutConstraint? = nil
     var promoMessageLabelHeightAnchor: NSLayoutConstraint? = nil
@@ -80,17 +81,20 @@ class ExploreContentCell: UITableViewCell {
         self.backgroundColor = UIColor().anf_tan()
 
         
-        self.addSubview(backgroundImage)
+        self.addSubview(mainImageView)
         self.addSubview(topDescriptionLabel)
         self.addSubview(titleLabel)
         self.addSubview(promoMessageLabel)
         self.addSubview(bottomDescriptionTextView)
         self.addSubview(contentItemsTableView)
 
-        backgroundImage.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        backgroundImage.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        backgroundImage.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        backgroundImage.bottomAnchor.constraint(equalTo: topDescriptionLabel.topAnchor, constant: -EXPLORE_BACKGROUNDIMAGE_TOPMARGIN).isActive = true
+        mainImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        mainImageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        mainImageView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        mainImageBottomAnchor?.isActive = false
+        mainImageBottomAnchor = mainImageView.bottomAnchor.constraint(equalTo: topDescriptionLabel.topAnchor, constant: (mainImageView.image != nil) ? -EXPLORE_BACKGROUNDIMAGE_TOPMARGIN : 0)
+        mainImageBottomAnchor?.isActive = true
+
         
         topDescriptionLabel.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         topDescriptionLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
@@ -123,7 +127,8 @@ class ExploreContentCell: UITableViewCell {
         
         contentItemsTableView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         contentItemsTableView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        contentItemsTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        //contentItemsTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        contentItemsTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -EXPLORE_BOTTOMMMARGIN_HEIGHT).isActive = true
         contentItemsHeightAnchor?.isActive = false
         if let contentItemCount = exploreItem?.content?.count {
             contentItemsHeightAnchor = contentItemsTableView.heightAnchor.constraint(equalToConstant: CGFloat(contentItemCount) * CONTENT_ITEM_HEIGHT)
@@ -131,7 +136,7 @@ class ExploreContentCell: UITableViewCell {
             contentItemsHeightAnchor = contentItemsTableView.heightAnchor.constraint(equalToConstant: 0)
         }
         contentItemsHeightAnchor?.isActive = true
-
+        
 
         
     }
@@ -141,11 +146,12 @@ class ExploreContentCell: UITableViewCell {
     }
     
     public func setExploreItem(exploreItem: ExploreItem) {
-        //print("setExploreItem: ", exploreItem)
         self.exploreItem = exploreItem
         if let imageRef = exploreItem.backgroundImage {
-            let image = UIImage(named: imageRef)
-            backgroundImage.image = image
+            if let image = UIImage(named: imageRef){
+                mainImageView.image = image
+
+            }
         }
         if let topDescription = exploreItem.topDescription {
             topDescriptionLabel.text = topDescription
@@ -157,7 +163,6 @@ class ExploreContentCell: UITableViewCell {
             promoMessageLabel.text = promo
         }
         if let bottomDescription = exploreItem.bottomDescription {
-            bottomDescriptionTextView.delegate = self
             let attributedString = bottomDescription.html2Attributed
             if let textString = attributedString?.string {
                 if let linkString = bottomDescription.href {
@@ -174,7 +179,7 @@ class ExploreContentCell: UITableViewCell {
             bottomDescriptionTextView.alignTextVerticallyInContainer()
 
         }
-        if let contentItems = exploreItem.content {
+        if exploreItem.content != nil {
             contentItemsTableView.delegate = self
             contentItemsTableView.dataSource = self
         }
@@ -214,13 +219,4 @@ extension ExploreContentCell: UITableViewDelegate, UITableViewDataSource {
         return CONTENT_ITEM_HEIGHT
     }
     
-    
-}
-
-extension ExploreContentCell: UITextViewDelegate {
-    
-    func textViewDidChange(_ textView: UITextView) {
-            print("textViewDidChange")
-           // bottomDescriptionTextView.centerVertically()
-    }
 }

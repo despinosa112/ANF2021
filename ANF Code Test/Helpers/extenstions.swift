@@ -9,24 +9,10 @@ import Foundation
 import UIKit
 import AVKit
 
-extension UIImageView {
-        
-    var scaledImageHeight: CGFloat {
-        if let imageSize = image?.size{
-            let screenSize: CGRect = UIScreen.main.bounds
-            let multiplier = imageSize.height / imageSize.width
-            let scaledImageHeight = screenSize.width * multiplier
-            return scaledImageHeight
-        } else {
-            return 0
-        }
-    }
-}
-
 
 extension UIImage {
     
-    var scaledImageHeight: CGFloat {
+    public var scaledImageHeight: CGFloat {
         let imageSize = self.size
         let screenSize: CGRect = UIScreen.main.bounds
         let multiplier = imageSize.height / imageSize.width
@@ -92,9 +78,6 @@ extension UIColor {
     func anf_tan() -> UIColor {
         return UIColor().hex(hex: "FAF9E5")
     }
-
-    
-
 }
 
 extension UITextView {

@@ -15,6 +15,17 @@
 		3E727EDF2672708B006C11AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E727EDD2672708B006C11AC /* LaunchScreen.storyboard */; };
 		3E727EEA2672708B006C11AC /* ANFExploreCardTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E727EE92672708B006C11AC /* ANFExploreCardTableViewControllerTests.swift */; };
 		3E727F03267281F7006C11AC /* ANFExploreCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E727F02267281F7006C11AC /* ANFExploreCardTableViewController.swift */; };
+		E87556F32716883F001A0B84 /* ExploreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87556F22716883F001A0B84 /* ExploreItem.swift */; };
+		E87556F6271688FB001A0B84 /* ContentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87556F5271688FB001A0B84 /* ContentItem.swift */; };
+		E87556FB2716914E001A0B84 /* ExploreContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87556F92716914E001A0B84 /* ExploreContentCell.swift */; };
+		E87557002716985B001A0B84 /* extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87556FF2716985B001A0B84 /* extenstions.swift */; };
+		E875570227178B9A001A0B84 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875570127178B9A001A0B84 /* constants.swift */; };
+		E87557092718E78A001A0B84 /* ContentItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87557082718E78A001A0B84 /* ContentItemsCell.swift */; };
+		E875570D271D03F5001A0B84 /* ExploreItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875570C271D03F5001A0B84 /* ExploreItemTests.swift */; };
+		E875570F271D0CEE001A0B84 /* ContentItemsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875570E271D0CEE001A0B84 /* ContentItemsTest.swift */; };
+		E8755711271D0F9A001A0B84 /* ExploreContentCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8755710271D0F99001A0B84 /* ExploreContentCellTests.swift */; };
+		E8755715271D183A001A0B84 /* ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8755714271D183A001A0B84 /* ImageTests.swift */; };
+		E8755717271D1F6A001A0B84 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8755716271D1F6A001A0B84 /* StringTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +51,17 @@
 		3E727EE92672708B006C11AC /* ANFExploreCardTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANFExploreCardTableViewControllerTests.swift; sourceTree = "<group>"; };
 		3E727EEB2672708B006C11AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E727F02267281F7006C11AC /* ANFExploreCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANFExploreCardTableViewController.swift; sourceTree = "<group>"; };
+		E87556F22716883F001A0B84 /* ExploreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreItem.swift; sourceTree = "<group>"; };
+		E87556F5271688FB001A0B84 /* ContentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentItem.swift; sourceTree = "<group>"; };
+		E87556F92716914E001A0B84 /* ExploreContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreContentCell.swift; sourceTree = "<group>"; };
+		E87556FF2716985B001A0B84 /* extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extenstions.swift; sourceTree = "<group>"; };
+		E875570127178B9A001A0B84 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		E87557082718E78A001A0B84 /* ContentItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentItemsCell.swift; sourceTree = "<group>"; };
+		E875570C271D03F5001A0B84 /* ExploreItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreItemTests.swift; sourceTree = "<group>"; };
+		E875570E271D0CEE001A0B84 /* ContentItemsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentItemsTest.swift; sourceTree = "<group>"; };
+		E8755710271D0F99001A0B84 /* ExploreContentCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreContentCellTests.swift; sourceTree = "<group>"; };
+		E8755714271D183A001A0B84 /* ImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTests.swift; sourceTree = "<group>"; };
+		E8755716271D1F6A001A0B84 /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +103,12 @@
 		3E727ED126727088006C11AC /* ANF Code Test */ = {
 			isa = PBXGroup;
 			children = (
-				3E727F02267281F7006C11AC /* ANFExploreCardTableViewController.swift */,
 				3E727ED226727088006C11AC /* AppDelegate.swift */,
 				3E727ED426727088006C11AC /* SceneDelegate.swift */,
+				E875570B271D039B001A0B84 /* Controllers */,
+				E875570A2719DB61001A0B84 /* Helpers */,
+				E87557052717F1AA001A0B84 /* TableViewCells */,
+				E87556F4271688DB001A0B84 /* Models */,
 				3E727ED826727088006C11AC /* Main.storyboard */,
 				3E727EDB2672708B006C11AC /* Assets.xcassets */,
 				3E727EDD2672708B006C11AC /* LaunchScreen.storyboard */,
@@ -97,9 +122,49 @@
 			isa = PBXGroup;
 			children = (
 				3E727EE92672708B006C11AC /* ANFExploreCardTableViewControllerTests.swift */,
+				E875570C271D03F5001A0B84 /* ExploreItemTests.swift */,
+				E875570E271D0CEE001A0B84 /* ContentItemsTest.swift */,
+				E8755710271D0F99001A0B84 /* ExploreContentCellTests.swift */,
+				E8755714271D183A001A0B84 /* ImageTests.swift */,
+				E8755716271D1F6A001A0B84 /* StringTests.swift */,
 				3E727EEB2672708B006C11AC /* Info.plist */,
 			);
 			path = "ANF Code TestTests";
+			sourceTree = "<group>";
+		};
+		E87556F4271688DB001A0B84 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E87556F22716883F001A0B84 /* ExploreItem.swift */,
+				E87556F5271688FB001A0B84 /* ContentItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E87557052717F1AA001A0B84 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				E87556F92716914E001A0B84 /* ExploreContentCell.swift */,
+				E87557082718E78A001A0B84 /* ContentItemsCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		E875570A2719DB61001A0B84 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E87556FF2716985B001A0B84 /* extenstions.swift */,
+				E875570127178B9A001A0B84 /* constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E875570B271D039B001A0B84 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3E727F02267281F7006C11AC /* ANFExploreCardTableViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,8 +269,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E727F03267281F7006C11AC /* ANFExploreCardTableViewController.swift in Sources */,
+				E87556FB2716914E001A0B84 /* ExploreContentCell.swift in Sources */,
 				3E727ED326727088006C11AC /* AppDelegate.swift in Sources */,
+				E87556F6271688FB001A0B84 /* ContentItem.swift in Sources */,
+				E87556F32716883F001A0B84 /* ExploreItem.swift in Sources */,
 				3E727ED526727088006C11AC /* SceneDelegate.swift in Sources */,
+				E87557092718E78A001A0B84 /* ContentItemsCell.swift in Sources */,
+				E87557002716985B001A0B84 /* extenstions.swift in Sources */,
+				E875570227178B9A001A0B84 /* constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +284,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E875570D271D03F5001A0B84 /* ExploreItemTests.swift in Sources */,
+				E8755715271D183A001A0B84 /* ImageTests.swift in Sources */,
+				E8755717271D1F6A001A0B84 /* StringTests.swift in Sources */,
+				E8755711271D0F9A001A0B84 /* ExploreContentCellTests.swift in Sources */,
+				E875570F271D0CEE001A0B84 /* ContentItemsTest.swift in Sources */,
 				3E727EEA2672708B006C11AC /* ANFExploreCardTableViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
